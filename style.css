@@ -1,0 +1,142 @@
+body{
+  font-family: 'Open Sans',  sans-serif,;
+  font-size: 20px;
+}
+header{
+  background-color: aliceblue;
+  border-bottom: 1px solid #dcdbdb;
+}
+.offpage{
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.offpage:focus {
+  position: static;
+  width: auto;
+  height: auto;
+}
+.banner{
+  margin: 20px 20px;
+  position: relative;
+  height: auto;
+  display: flex;
+}
+.banner img{
+  width: 100%;
+  height: auto;
+  opacity: .4;
+}
+.text{
+  position: absolute;
+  top: 10%;
+  left: 22%;
+  text-align: center;
+  font-family: cursive;
+  font-size: 30px;
+  
+}
+.text p{
+ line-height: 10px; 
+}
+.button {
+  background-color: #363c91;
+  border: 4px 4px solid black;
+  border-style: smoothen;
+  border-radius: 10px;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.button:hover{
+  background-color: #eee6f9;
+  color:#363c91;
+}
+nav ul{
+  display: flex;;
+  justify-content: space-evenly;
+  list-style-type: none;
+  margin: 0;
+  margin-right: -250px;
+  padding: 0;
+}
+h2{
+  text-align: center;
+  font-size: 35px;
+  text-decoration: underline;
+  font-variant: small-caps;
+}
+footer{
+  background-color: gainsboro;
+  display: inherit;
+  text-align: center;
+}
+nav li{
+    display: inline-block;
+    width: 375px;
+    font-size: 40px;
+}
+#gallery{
+  display: ruby;
+}
+#gallery img{
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border: 5px solid #6c6a6a;
+  border-radius: 20%;
+  padding: 5px;
+  width:auto;
+  height: auto;
+}
+#gallery img:hover{
+  box-shadow: 6px 6px 6px 6px #afacac;;
+}
+#gallery :nth-child(2n){
+  border-radius:40%;
+}
+.text h1{
+  text-shadow: 2px 2px 5px #693f3f;
+}
+.grid{
+  display: grid;
+  grid-template-columns: 48% 48%;
+  grid-template-rows: auto auto auto;
+  grid-gap: 10px;
+  padding: 10px;
+  margin-left: 3%;
+  justify-content: space-between;
+}
+.item h3{
+  text-align: center;
+}
+.item img{
+  text-align: center;
+}
+.item{
+  border: 2px solid #3f2c2c;
+  justify-content: center;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#contact{
+  display: inline-flex;
+  margin-left: 40%;
+}
+.nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
