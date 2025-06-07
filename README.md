@@ -26,6 +26,7 @@ This project is organized into clear and intuitive files, making it easy to navi
 ## ✨ Features
 
 * **Multi-page Static Website:** Demonstrates navigation and linking between different HTML documents.
+* **Responsive Design:** Ensures the website adapts and looks great on various devices, from mobile phones and tablets to larger desktop screens.
 * **Banner and Navigation Bar:** Features a prominent header and an easy-to-use navigation menu for seamless Browse.
 * **Interactive Menu Section:** A dedicated page to display food and drink items.
 * **Gallery:** A visual showcase of appetizing food and the restaurant's ambiance.
