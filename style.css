@@ -74,13 +74,15 @@ header {
 }
 
 .text h1 {
-    font-size: 2.5em;
+    /* Increased font size for "Hey Foodies !!" - default (mobile) size */
+    font-size: 3em;
     margin-bottom: 0.5em;
     line-height: 1.2; /* Tighter line height for multi-line headings */
 }
 
 .text p {
-    font-size: 1em;
+    /* Slightly increased font size for the other text - default (mobile) size */
+    font-size: 1.1em;
     line-height: 1.4;
     margin: 0.5em 0;
 }
@@ -164,9 +166,9 @@ main p {
 #gallery img {
     flex-grow: 1;
     flex-shrink: 1;
-    flex-basis: 200px;
-    max-width: 100%;
-    height: 180px;
+    flex-basis: 200px; /* Minimum width for each image before growing/shrinking */
+    max-width: 350px; /* Default max-width for gallery images (e.g., on smaller screens) */
+    height: 180px; /* Fixed height for consistency */
     border: 5px solid #6c6a6a;
     border-radius: 20%;
     padding: 5px;
@@ -283,11 +285,11 @@ footer p {
     }
 
     .text h1 {
-        font-size: 3.5em;
+        font-size: 4em; /* Increased font size for "Hey Foodies !!" on tablets */
     }
 
     .text p {
-        font-size: 1.2em;
+        font-size: 1.3em; /* Slightly increased font size on tablets */
     }
 
     /* nav ul gap is already taking care of spacing, no specific margin needed here unless you want more */
@@ -299,8 +301,9 @@ footer p {
     }
 
     #gallery img {
-        flex-basis: 250px;
-        height: 200px;
+        flex-basis: 250px; /* Base size for tablet gallery images */
+        max-width: 400px; /* Adjusted max-width for tablets */
+        height: 200px; /* Fixed height for consistency */
     }
 
     #contact {
@@ -329,22 +332,29 @@ footer p {
     }
 
     .text {
-        /* User wants text centered always, so removed the left: 20% rule */
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        text-align: center; /* Kept text centered */
-        width: clamp(500px, 60vw, 800px); /* Adjusted width range for larger screens */
+        text-align: center;
+        width: clamp(500px, 60vw, 800px);
     }
 
-    /* Keep nav centered on larger screens too */
+    .text h1 {
+        font-size: 4.5em; /* Further increased font size for "Hey Foodies !!" on larger desktops */
+    }
+
+    .text p {
+        font-size: 1.5em; /* Slightly increased font size on larger desktops */
+    }
+
     nav ul {
-        justify-content: center; /* Changed from flex-end to center */
-        margin-right: 0; /* Ensures no extra right margin pushes it */
+        justify-content: center;
+        margin-right: 0;
     }
 
     #gallery img {
-        flex-basis: 300px;
-        height: 250px;
+        flex-basis: 300px; /* Base size for larger desktop gallery images */
+        max-width: 450px; /* Adjusted max-width for larger desktops */
+        height: 250px; /* Fixed height for consistency */
     }
 }
