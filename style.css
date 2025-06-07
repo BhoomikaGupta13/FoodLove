@@ -102,7 +102,7 @@ nav ul {
     margin: 0;
     padding: 0;
     /* Added a gap for more consistent spacing between buttons */
-    gap: 3.5rem; /* This provides space between flex items */
+    gap: 7.5rem; /* This provides space between flex items */
 }
 
 nav li {
