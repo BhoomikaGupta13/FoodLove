@@ -354,7 +354,7 @@ footer p {
 
     #gallery img {
         flex-basis: 300px; /* Base size for larger desktop gallery images */
-        max-width: 300%; /* Adjusted max-width for larger desktops */
+        max-width: 250%; /* Adjusted max-width for larger desktops */
         height: 250px; /* Fixed height for consistency */
     }
 }
