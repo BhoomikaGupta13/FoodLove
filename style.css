@@ -34,23 +34,23 @@ body {
 header {
     background-color: aliceblue;
     border-bottom: 1px solid #dcdbdb;
-    padding: 1rem 0; /* Add some padding */
-    display: flex; /* Make header a flex container */
-    flex-direction: column; /* Stack banner and nav vertically */
-    align-items: center; /* Center items horizontally within header */
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column; /* Stacks banner and nav */
+    align-items: center; /* Centers items horizontally within header */
 }
 
 .banner {
     position: relative;
     width: 100%; /* Ensure banner takes full width */
-    overflow: hidden; /* Important for positioning children */
+    overflow: hidden;
     margin-bottom: 1rem; /* Space between banner and nav */
 }
 
 .banner img {
     width: 100%; /* Image takes full width of banner */
     height: auto; /* Maintain aspect ratio */
-    display: block; /* Remove extra space below image */
+    display: block;
     opacity: 0.4;
     object-fit: cover; /* Ensures image covers the area nicely without distortion */
     min-height: 200px; /* Minimum height for smaller screens */
@@ -64,44 +64,52 @@ header {
     transform: translate(-50%, -50%); /* Adjust for true centering */
     text-align: center;
     font-family: cursive;
-    color: #333; /* Make text more readable */
-    width: 90%; /* Ensure text doesn't overflow on small screens */
+    color: #333;
+    /* Adjusted width to use clamp for better control across sizes */
+    width: clamp(280px, 90vw, 700px); /* Min 280px, up to 90% of viewport width, max 700px */
     padding: 10px;
-    text-shadow: 2px 2px 5px rgba(105, 63, 63, 0.7); /* Slightly darker shadow for visibility */
+    text-shadow: 2px 2px 5px rgba(105, 63, 63, 0.7);
+    /* Added z-index to ensure text is always above other elements if there are z-index conflicts */
+    z-index: 2;
 }
 
 .text h1 {
-    font-size: 2.5em; /* Use em for relative sizing */
-    margin-bottom: 0.5em; /* Space below heading */
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+    line-height: 1.2; /* Tighter line height for multi-line headings */
 }
 
 .text p {
-    font-size: 1em; /* Adjust paragraph font size */
-    line-height: 1.4; /* Better line spacing */
-    margin: 0.5em 0; /* Adjust margins for paragraphs */
+    font-size: 1em;
+    line-height: 1.4;
+    margin: 0.5em 0;
 }
 
 /* --- Navigation Bar --- */
 nav {
     width: 100%; /* Ensure nav takes full width */
-    max-width: 900px; /* Optional: limit max width of nav */
+    max-width: 900px; /* Limits max width of nav content */
+    z-index: 1; /* Ensure nav is below text, but above other content */
 }
 
 nav ul {
-    display: flex; /* Use flexbox for navigation */
-    flex-wrap: wrap; /* Allow items to wrap to next line on small screens */
-    justify-content: center; /* Center items horizontally */
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap on small screens */
+    justify-content: center; /* Centers nav items horizontally */
     list-style-type: none;
     margin: 0;
     padding: 0;
+    /* Added a gap for more consistent spacing between buttons */
+    gap: 1.5rem; /* This provides space between flex items */
 }
 
 nav li {
-    display: block; /* Each list item is a block */
-    margin: 0.5rem; /* Space between navigation items */
-    width: auto; /* Remove fixed width */
+    display: block;
+    /* Removed margin from li because 'gap' is used on ul for spacing */
+    /* If you prefer margin over gap, use margin: 0 1rem; and remove gap from ul */
+    width: auto;
     flex-grow: 1; /* Allow buttons to grow */
-    max-width: 180px; /* Limit max width of each button */
+    max-width: 180px; /* Limits max width of each button */
 }
 
 .button {
@@ -109,11 +117,11 @@ nav li {
     border: none;
     border-radius: 10px;
     color: white;
-    padding: 10px 15px; /* Slightly less padding for smaller buttons */
+    padding: 10px 15px;
     text-align: center;
     text-decoration: none;
     display: block; /* Make the anchor tag fill the li */
-    font-size: 1.1em; /* Use em for font size */
+    font-size: 1.1em;
     cursor: pointer;
     transition-duration: 0.4s;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -127,42 +135,42 @@ nav li {
 
 /* --- Main Content Area --- */
 main {
-    padding: 20px; /* Add padding around main content */
-    max-width: 1200px; /* Limit max width on very large screens */
-    margin: 20px auto; /* Center main content */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
 }
 
 h2 {
     text-align: center;
-    font-size: 2em; /* Responsive font size */
+    font-size: 2em;
     text-decoration: underline;
     font-variant: small-caps;
     margin-bottom: 1em;
 }
 
 main p {
-    margin-bottom: 1em; /* Space between paragraphs */
+    margin-bottom: 1em;
 }
 
 /* --- Gallery Section --- */
 #gallery {
-    display: flex; /* Use flexbox for the gallery */
-    flex-wrap: wrap; /* Allow images to wrap to the next line */
-    justify-content: center; /* Center images horizontally */
-    gap: 15px; /* Space between images */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
     margin-top: 20px;
 }
 
 #gallery img {
-    flex-grow: 1; /* Allows images to grow and fill space */
-    flex-shrink: 1; /* Allows images to shrink */
-    flex-basis: 200px; /* Minimum width before wrapping */
-    max-width: 100%; /* Ensure images don't overflow */
-    height: 180px; /* Fixed height for consistency in gallery */
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 200px;
+    max-width: 100%;
+    height: 180px;
     border: 5px solid #6c6a6a;
     border-radius: 20%;
     padding: 5px;
-    object-fit: cover; /* Ensures images cover their area */
+    object-fit: cover;
 }
 
 #gallery img:hover {
@@ -175,17 +183,17 @@ main p {
 
 /* --- Menu Grid Section --- */
 .grid {
-    display: grid; /* Use CSS Grid for the menu items */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
-    grid-gap: 20px; /* Space between grid items */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-gap: 20px;
     padding: 10px;
-    margin-left: 0; /* Remove fixed margin */
+    margin-left: 0;
 }
 
 .item {
     border: 2px solid #3f2c2c;
     padding: 15px;
-    text-align: center; /* Center text within item */
+    text-align: center;
 }
 
 .item h3 {
@@ -194,7 +202,7 @@ main p {
 }
 
 .item img {
-    max-width: 100%; /* Ensure menu images don't overflow */
+    max-width: 100%;
     height: auto;
     margin-bottom: 10px;
 }
@@ -202,7 +210,7 @@ main p {
 .item ul {
     list-style-type: none;
     padding: 0;
-    text-align: left; /* Align list items left */
+    text-align: left;
     margin: 0;
 }
 
@@ -211,7 +219,7 @@ main p {
     font-size: 0.95em;
 }
 
-.center { /* Apply this to images inside menu items */
+.center {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -219,29 +227,29 @@ main p {
 
 /* --- Contact Section --- */
 #contact {
-    display: flex; /* Use flexbox for contact content */
-    flex-direction: column; /* Stack items vertically on small screens */
-    align-items: center; /* Center items horizontally */
-    padding-top: 20px; /* Add some space above */
-    margin-left: 0; /* Remove any old fixed margin */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    margin-left: 0;
 }
 
 #contact img {
-    max-width: 80%; /* Limit image size on small screens */
+    max-width: 80%;
     height: auto;
-    margin-bottom: 20px; /* Space between image and text */
+    margin-bottom: 20px;
     border-radius: 10px;
 }
 
 #contact p,
 #contact ul {
-    max-width: 600px; /* Limit text width for readability */
-    margin: 0 auto 1em auto; /* Center and add bottom margin */
-    text-align: center; /* Center text */
+    max-width: 600px;
+    margin: 0 auto 1em auto;
+    text-align: center;
 }
 
 #contact ul {
-    list-style: none; /* Remove default list bullets */
+    list-style: none;
     padding: 0;
 }
 
@@ -253,12 +261,12 @@ main p {
 footer {
     background-color: gainsboro;
     text-align: center;
-    padding: 15px; /* Add padding */
-    margin-top: 30px; /* Space above footer */
+    padding: 15px;
+    margin-top: 30px;
 }
 
 footer p {
-    margin: 0; /* Remove default paragraph margin */
+    margin: 0;
     font-size: 0.9em;
 }
 
@@ -267,11 +275,11 @@ footer p {
 /* Tablet & Smaller Desktop Screens (e.g., 768px and up) */
 @media screen and (min-width: 768px) {
     .banner img {
-        max-height: 500px; /* Allow banner to be taller on larger screens */
+        max-height: 500px;
     }
 
     .text {
-        width: 70%; /* Give more width to text on tablets */
+        width: clamp(400px, 70vw, 700px); /* Adjusted width range for tablets */
     }
 
     .text h1 {
@@ -282,14 +290,8 @@ footer p {
         font-size: 1.2em;
     }
 
-    nav ul {
-        justify-content: center; /* Keep nav items centered for tablets */
-        margin-right: 0; /* Remove old margin */
-    }
-
-    nav li {
-        margin: 0 1rem; /* Adjust spacing for tablet nav */
-    }
+    /* nav ul gap is already taking care of spacing, no specific margin needed here unless you want more */
+    /* nav li { margin: 0 1rem; } */ /* Removed, let gap handle it */
 
     .button {
         padding: 12px 25px;
@@ -297,58 +299,52 @@ footer p {
     }
 
     #gallery img {
-        flex-basis: 250px; /* Larger min-width for gallery images */
-        height: 200px; /* Fixed height for consistent look */
+        flex-basis: 250px;
+        height: 200px;
     }
 
     #contact {
-        flex-direction: row; /* Layout side-by-side */
-        justify-content: center; /* Center horizontally */
-        align-items: flex-start; /* Align items to the top */
-        gap: 40px; /* Space between image and text */
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 40px;
     }
 
     #contact img {
-        max-width: 300px; /* Larger contact image */
+        max-width: 300px;
         margin-bottom: 0;
     }
 
     #contact p,
     #contact ul {
-        text-align: left; /* Align text left */
-        margin: 0; /* Remove auto margins */
+        text-align: left;
+        margin: 0;
     }
 }
 
 /* Larger Desktop Screens (e.g., 1024px and up) */
 @media screen and (min-width: 1024px) {
     .banner img {
-        max-height: 600px; /* Even taller banner for large desktops */
+        max-height: 600px;
     }
 
     .text {
-        top: 50%; /* Re-center vertically */
-        left: 20%; /* Align text more to the left on large screens */
-        transform: translate(0, -50%); /* Adjust transform to left-align */
-        text-align: left;
-        width: 40%; /* Control text width */
+        /* User wants text centered always, so removed the left: 20% rule */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center; /* Kept text centered */
+        width: clamp(500px, 60vw, 800px); /* Adjusted width range for larger screens */
     }
 
-    .text h1 {
-        font-size: 4.5em;
-    }
-
-    .text p {
-        font-size: 1.5em;
-    }
-
+    /* Keep nav centered on larger screens too */
     nav ul {
-        justify-content: flex-end; /* Align nav items to the right on large desktops */
-        margin-right: 50px; /* More margin for larger screens */
+        justify-content: center; /* Changed from flex-end to center */
+        margin-right: 0; /* Ensures no extra right margin pushes it */
     }
 
     #gallery img {
-        flex-basis: 300px; /* Even larger min-width */
+        flex-basis: 300px;
         height: 250px;
     }
 }
