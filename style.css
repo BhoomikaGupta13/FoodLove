@@ -1,142 +1,331 @@
-body{
-  font-family: 'Open Sans',  sans-serif,;
-  font-size: 20px;
+/* --- Global Styles & Resets --- */
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px; /* Using px for base font size, but will scale */
+    line-height: 1.6; /* Improves readability */
+    margin: 0; /* Remove default body margin */
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding and border are included in element's total width/height */
 }
-header{
-  background-color: aliceblue;
-  border-bottom: 1px solid #dcdbdb;
+
+/* Apply box-sizing to all elements */
+*, *::before, *::after {
+    box-sizing: inherit;
 }
-.offpage{
-  position: absolute;
-  left: -10000px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
+
+/* --- Accessibility Skip Link --- */
+.offpage {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
 }
+
 .offpage:focus {
-  position: static;
-  width: auto;
-  height: auto;
+    position: static;
+    width: auto;
+    height: auto;
 }
-.banner{
-  margin: 20px 20px;
-  position: relative;
-  height: auto;
-  display: flex;
+
+/* --- Header & Banner Section --- */
+header {
+    background-color: aliceblue;
+    border-bottom: 1px solid #dcdbdb;
+    padding: 1rem 0; /* Add some padding */
 }
-.banner img{
-  width: 100%;
-  height: auto;
-  opacity: .4;
+
+.banner {
+    position: relative;
+    width: 100%; /* Ensure banner takes full width */
+    overflow: hidden; /* Important for positioning children */
 }
-.text{
-  position: absolute;
-  top: 10%;
-  left: 22%;
-  text-align: center;
-  font-family: cursive;
-  font-size: 30px;
-  
+
+.banner img {
+    width: 100%; /* Image takes full width of banner */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below image */
+    opacity: 0.4;
+    object-fit: cover; /* Ensures image covers the area nicely without distortion */
+    min-height: 200px; /* Minimum height for smaller screens */
 }
-.text p{
- line-height: 10px; 
+
+.text {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for true centering */
+    text-align: center;
+    font-family: cursive;
+    color: #333; /* Make text more readable */
+    width: 90%; /* Ensure text doesn't overflow on small screens */
+    padding: 10px;
 }
+
+.text h1 {
+    font-size: 2.5em; /* Use em for relative sizing */
+    text-shadow: 2px 2px 5px #693f3f;
+    margin-bottom: 0.5em; /* Space below heading */
+}
+
+.text p {
+    font-size: 1em; /* Adjust paragraph font size */
+    line-height: 1.4; /* Better line spacing */
+    margin: 0.5em 0; /* Adjust margins for paragraphs */
+}
+
+/* --- Navigation Bar --- */
+nav ul {
+    display: flex; /* Use flexbox for navigation */
+    flex-wrap: wrap; /* Allow items to wrap to next line on small screens */
+    justify-content: center; /* Center items horizontally */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: block; /* Each list item is a block */
+    margin: 0.5rem; /* Space between navigation items */
+    width: auto; /* Remove fixed width */
+}
+
 .button {
-  background-color: #363c91;
-  border: 4px 4px solid black;
-  border-style: smoothen;
-  border-radius: 10px;
-  color: white;
-  padding: 10px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  margin: 4px 2px;
-  cursor: pointer;
-  transition-duration: 0.4s;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: #363c91;
+    border: none; /* Removed border-style: smoothen; which is invalid */
+    border-radius: 10px;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: block; /* Make the anchor tag fill the li */
+    font-size: 1.1em; /* Use em for font size */
+    cursor: pointer;
+    transition-duration: 0.4s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
-.button:hover{
-  background-color: #eee6f9;
-  color:#363c91;
+
+.button:hover {
+    background-color: #eee6f9;
+    color: #363c91;
 }
-nav ul{
-  display: flex;;
-  justify-content: space-evenly;
-  list-style-type: none;
-  margin: 0;
-  margin-right: -250px;
-  padding: 0;
+
+/* --- Main Content Area --- */
+main {
+    padding: 20px; /* Add padding around main content */
+    max-width: 1200px; /* Limit max width on very large screens */
+    margin: 20px auto; /* Center main content */
 }
-h2{
-  text-align: center;
-  font-size: 35px;
-  text-decoration: underline;
-  font-variant: small-caps;
+
+h2 {
+    text-align: center;
+    font-size: 2em; /* Responsive font size */
+    text-decoration: underline;
+    font-variant: small-caps;
+    margin-bottom: 1em;
 }
-footer{
-  background-color: gainsboro;
-  display: inherit;
-  text-align: center;
+
+main p {
+    margin-bottom: 1em; /* Space between paragraphs */
 }
-nav li{
-    display: inline-block;
-    width: 375px;
-    font-size: 40px;
+
+/* --- Gallery Section --- */
+#gallery {
+    display: flex; /* Use flexbox for the gallery */
+    flex-wrap: wrap; /* Allow images to wrap to the next line */
+    justify-content: center; /* Center images horizontally */
+    gap: 15px; /* Space between images */
+    margin-top: 20px;
 }
-#gallery{
-  display: ruby;
+
+#gallery img {
+    flex-grow: 1; /* Allows images to grow and fill space */
+    flex-shrink: 1; /* Allows images to shrink */
+    flex-basis: 200px; /* Minimum width before wrapping */
+    max-width: 100%; /* Ensure images don't overflow */
+    height: auto; /* Maintain aspect ratio */
+    border: 5px solid #6c6a6a;
+    border-radius: 20%;
+    padding: 5px;
+    object-fit: cover; /* Ensures images cover their area */
+    min-height: 150px; /* Give a min height to gallery images */
 }
-#gallery img{
-  flex-wrap: wrap;
-  justify-content: space-between;
-  border: 5px solid #6c6a6a;
-  border-radius: 20%;
-  padding: 5px;
-  width:auto;
-  height: auto;
+
+#gallery img:hover {
+    box-shadow: 6px 6px 6px 6px #afacac;
 }
-#gallery img:hover{
-  box-shadow: 6px 6px 6px 6px #afacac;;
+
+#gallery :nth-child(2n) {
+    border-radius: 40%;
 }
-#gallery :nth-child(2n){
-  border-radius:40%;
+
+/* --- Menu Grid Section --- */
+.grid {
+    display: grid; /* Use CSS Grid for the menu items */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
+    grid-gap: 20px; /* Space between grid items */
+    padding: 10px;
+    margin-left: 0; /* Remove fixed margin */
+    justify-content: center; /* Center grid items (if space allows) */
 }
-.text h1{
-  text-shadow: 2px 2px 5px #693f3f;
+
+.item {
+    border: 2px solid #3f2c2c;
+    padding: 15px;
+    text-align: center; /* Center text within item */
 }
-.grid{
-  display: grid;
-  grid-template-columns: 48% 48%;
-  grid-template-rows: auto auto auto;
-  grid-gap: 10px;
-  padding: 10px;
-  margin-left: 3%;
-  justify-content: space-between;
+
+.item h3 {
+    margin-top: 0;
+    font-size: 1.5em;
 }
-.item h3{
-  text-align: center;
+
+.item img {
+    max-width: 100%; /* Ensure menu images don't overflow */
+    height: auto;
+    margin-bottom: 10px;
 }
-.item img{
-  text-align: center;
+
+.item ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: left; /* Align list items left */
+    margin: 0;
 }
-.item{
-  border: 2px solid #3f2c2c;
-  justify-content: center;
+
+.item ul li {
+    margin-bottom: 5px;
+    font-size: 0.95em;
 }
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+
+.center { /* Apply this to images inside menu items */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
-#contact{
-  display: inline-flex;
-  margin-left: 40%;
+
+/* --- Contact Section --- */
+#contact {
+    display: flex; /* Use flexbox for contact content */
+    flex-direction: column; /* Stack items vertically on small screens */
+    align-items: center; /* Center items horizontally */
+    margin-left: 0; /* Remove fixed margin */
+    padding-top: 20px; /* Add some space above */
 }
-.nav{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+#contact img {
+    max-width: 80%; /* Limit image size on small screens */
+    height: auto;
+    margin-bottom: 20px; /* Space between image and text */
+    border-radius: 10px; /* Example styling */
+}
+
+#contact p,
+#contact ul {
+    max-width: 600px; /* Limit text width for readability */
+    margin: 0 auto 1em auto; /* Center and add bottom margin */
+    text-align: center; /* Center text */
+}
+
+#contact ul {
+    list-style: none; /* Remove default list bullets */
+    padding: 0;
+}
+
+#contact ul li {
+    margin-bottom: 0.5em;
+}
+
+
+/* --- Footer --- */
+footer {
+    background-color: gainsboro;
+    text-align: center;
+    padding: 15px; /* Add padding */
+    margin-top: 30px; /* Space above footer */
+}
+
+footer p {
+    margin: 0; /* Remove default paragraph margin */
+    font-size: 0.9em;
+}
+
+/* --- Media Queries for Larger Screens --- */
+
+/* Tablet & Smaller Desktop Screens (e.g., 768px and up) */
+@media screen and (min-width: 768px) {
+    .text h1 {
+        font-size: 3.5em;
+    }
+
+    .text p {
+        font-size: 1.2em;
+    }
+
+    nav ul {
+        justify-content: flex-end; /* Align nav items to the right */
+        margin-right: 20px; /* Adjust margin if needed */
+    }
+
+    nav li {
+        margin: 0 1rem; /* Adjust spacing for tablet nav */
+    }
+
+    .button {
+        padding: 12px 30px;
+        font-size: 1.2em;
+    }
+
+    #gallery img {
+        flex-basis: 250px; /* Larger min-width for gallery images */
+        height: 200px; /* Fixed height for consistent look */
+    }
+
+    #contact {
+        flex-direction: row; /* Layout side-by-side */
+        justify-content: center; /* Center horizontally */
+        align-items: flex-start; /* Align items to the top */
+        gap: 40px; /* Space between image and text */
+    }
+
+    #contact img {
+        max-width: 300px; /* Larger contact image */
+        margin-bottom: 0;
+    }
+
+    #contact p,
+    #contact ul {
+        text-align: left; /* Align text left */
+        margin: 0; /* Remove auto margins */
+    }
+}
+
+/* Larger Desktop Screens (e.g., 1024px and up) */
+@media screen and (min-width: 1024px) {
+    .text {
+        top: 25%; /* Adjust top positioning for large screens */
+        left: 20%;
+        transform: translate(0, -50%); /* Adjust transform */
+        text-align: left;
+        width: 40%; /* Control text width */
+    }
+
+    .text h1 {
+        font-size: 4.5em;
+    }
+
+    .text p {
+        font-size: 1.5em;
+    }
+
+    nav ul {
+        justify-content: flex-end; /* Keep nav items to the right */
+        margin-right: 50px; /* More margin for larger screens */
+    }
+
+    #gallery img {
+        flex-basis: 300px; /* Even larger min-width */
+        height: 250px;
+    }
 }
