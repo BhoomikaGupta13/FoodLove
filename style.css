@@ -102,7 +102,7 @@ nav ul {
     margin: 0;
     padding: 0;
     /* Added a gap for more consistent spacing between buttons */
-    gap: 1.5rem; /* This provides space between flex items */
+    gap: 3.5rem; /* This provides space between flex items */
 }
 
 nav li {
@@ -354,7 +354,7 @@ footer p {
 
     #gallery img {
         flex-basis: 300px; /* Base size for larger desktop gallery images */
-        max-width: 300px; /* Adjusted max-width for larger desktops */
+        max-width: 250px; /* Adjusted max-width for larger desktops */
         height: 250px; /* Fixed height for consistency */
     }
 }
