@@ -1,11 +1,12 @@
 /* --- Global Styles & Resets --- */
 body {
     font-family: 'Open Sans', sans-serif;
-    font-size: 18px; /* Using px for base font size, but will scale */
+    font-size: 18px; /* Base font size */
     line-height: 1.6; /* Improves readability */
     margin: 0; /* Remove default body margin */
     padding: 0;
     box-sizing: border-box; /* Ensures padding and border are included in element's total width/height */
+    overflow-x: hidden; /* Prevent horizontal scrollbar from overflowing content */
 }
 
 /* Apply box-sizing to all elements */
@@ -34,12 +35,16 @@ header {
     background-color: aliceblue;
     border-bottom: 1px solid #dcdbdb;
     padding: 1rem 0; /* Add some padding */
+    display: flex; /* Make header a flex container */
+    flex-direction: column; /* Stack banner and nav vertically */
+    align-items: center; /* Center items horizontally within header */
 }
 
 .banner {
     position: relative;
     width: 100%; /* Ensure banner takes full width */
     overflow: hidden; /* Important for positioning children */
+    margin-bottom: 1rem; /* Space between banner and nav */
 }
 
 .banner img {
@@ -49,6 +54,7 @@ header {
     opacity: 0.4;
     object-fit: cover; /* Ensures image covers the area nicely without distortion */
     min-height: 200px; /* Minimum height for smaller screens */
+    max-height: 400px; /* Max height to prevent very tall banners */
 }
 
 .text {
@@ -61,11 +67,11 @@ header {
     color: #333; /* Make text more readable */
     width: 90%; /* Ensure text doesn't overflow on small screens */
     padding: 10px;
+    text-shadow: 2px 2px 5px rgba(105, 63, 63, 0.7); /* Slightly darker shadow for visibility */
 }
 
 .text h1 {
     font-size: 2.5em; /* Use em for relative sizing */
-    text-shadow: 2px 2px 5px #693f3f;
     margin-bottom: 0.5em; /* Space below heading */
 }
 
@@ -76,6 +82,11 @@ header {
 }
 
 /* --- Navigation Bar --- */
+nav {
+    width: 100%; /* Ensure nav takes full width */
+    max-width: 900px; /* Optional: limit max width of nav */
+}
+
 nav ul {
     display: flex; /* Use flexbox for navigation */
     flex-wrap: wrap; /* Allow items to wrap to next line on small screens */
@@ -89,14 +100,16 @@ nav li {
     display: block; /* Each list item is a block */
     margin: 0.5rem; /* Space between navigation items */
     width: auto; /* Remove fixed width */
+    flex-grow: 1; /* Allow buttons to grow */
+    max-width: 180px; /* Limit max width of each button */
 }
 
 .button {
     background-color: #363c91;
-    border: none; /* Removed border-style: smoothen; which is invalid */
+    border: none;
     border-radius: 10px;
     color: white;
-    padding: 10px 25px;
+    padding: 10px 15px; /* Slightly less padding for smaller buttons */
     text-align: center;
     text-decoration: none;
     display: block; /* Make the anchor tag fill the li */
@@ -104,6 +117,7 @@ nav li {
     cursor: pointer;
     transition-duration: 0.4s;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    white-space: nowrap; /* Prevent button text from wrapping */
 }
 
 .button:hover {
@@ -144,12 +158,11 @@ main p {
     flex-shrink: 1; /* Allows images to shrink */
     flex-basis: 200px; /* Minimum width before wrapping */
     max-width: 100%; /* Ensure images don't overflow */
-    height: auto; /* Maintain aspect ratio */
+    height: 180px; /* Fixed height for consistency in gallery */
     border: 5px solid #6c6a6a;
     border-radius: 20%;
     padding: 5px;
     object-fit: cover; /* Ensures images cover their area */
-    min-height: 150px; /* Give a min height to gallery images */
 }
 
 #gallery img:hover {
@@ -167,7 +180,6 @@ main p {
     grid-gap: 20px; /* Space between grid items */
     padding: 10px;
     margin-left: 0; /* Remove fixed margin */
-    justify-content: center; /* Center grid items (if space allows) */
 }
 
 .item {
@@ -210,15 +222,15 @@ main p {
     display: flex; /* Use flexbox for contact content */
     flex-direction: column; /* Stack items vertically on small screens */
     align-items: center; /* Center items horizontally */
-    margin-left: 0; /* Remove fixed margin */
     padding-top: 20px; /* Add some space above */
+    margin-left: 0; /* Remove any old fixed margin */
 }
 
 #contact img {
     max-width: 80%; /* Limit image size on small screens */
     height: auto;
     margin-bottom: 20px; /* Space between image and text */
-    border-radius: 10px; /* Example styling */
+    border-radius: 10px;
 }
 
 #contact p,
@@ -237,7 +249,6 @@ main p {
     margin-bottom: 0.5em;
 }
 
-
 /* --- Footer --- */
 footer {
     background-color: gainsboro;
@@ -255,6 +266,14 @@ footer p {
 
 /* Tablet & Smaller Desktop Screens (e.g., 768px and up) */
 @media screen and (min-width: 768px) {
+    .banner img {
+        max-height: 500px; /* Allow banner to be taller on larger screens */
+    }
+
+    .text {
+        width: 70%; /* Give more width to text on tablets */
+    }
+
     .text h1 {
         font-size: 3.5em;
     }
@@ -264,8 +283,8 @@ footer p {
     }
 
     nav ul {
-        justify-content: flex-end; /* Align nav items to the right */
-        margin-right: 20px; /* Adjust margin if needed */
+        justify-content: center; /* Keep nav items centered for tablets */
+        margin-right: 0; /* Remove old margin */
     }
 
     nav li {
@@ -273,7 +292,7 @@ footer p {
     }
 
     .button {
-        padding: 12px 30px;
+        padding: 12px 25px;
         font-size: 1.2em;
     }
 
@@ -303,10 +322,14 @@ footer p {
 
 /* Larger Desktop Screens (e.g., 1024px and up) */
 @media screen and (min-width: 1024px) {
+    .banner img {
+        max-height: 600px; /* Even taller banner for large desktops */
+    }
+
     .text {
-        top: 25%; /* Adjust top positioning for large screens */
-        left: 20%;
-        transform: translate(0, -50%); /* Adjust transform */
+        top: 50%; /* Re-center vertically */
+        left: 20%; /* Align text more to the left on large screens */
+        transform: translate(0, -50%); /* Adjust transform to left-align */
         text-align: left;
         width: 40%; /* Control text width */
     }
@@ -320,7 +343,7 @@ footer p {
     }
 
     nav ul {
-        justify-content: flex-end; /* Keep nav items to the right */
+        justify-content: flex-end; /* Align nav items to the right on large desktops */
         margin-right: 50px; /* More margin for larger screens */
     }
 
